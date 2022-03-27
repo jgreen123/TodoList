@@ -30,11 +30,13 @@ const TodoList = () => {
     return (
     <Container fixed>
         {/* by default, the Select value is morning */}
-    <Select ref={selectRef} options={OPTIONS} value={OPTIONS.filter(option => option.label === 'morning')}/>
+    <Select ref={selectRef} options={OPTIONS}/>
     <input ref={inputRef} type="text"/>
 
     {/* on click,the button keeps the initial state and adds the new values to it*/}
-    <Button onClick={e => setTodos( (initialState: todo[]) => [...initialState, {time: selectRef.current.props.value.label, item: inputRef.current.value}])}>Add Item</Button>
+    <Button onClick={e => {
+        
+        return setTodos( (initialState: todo[]) => [...initialState, {time: selectRef.current.props.value.label, item: inputRef.current.value}])}}>Add Item</Button>
     
     <span>
         <Table>
